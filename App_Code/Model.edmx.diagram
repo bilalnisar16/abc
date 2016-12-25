@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d274ddd2f16646ccb4368e5fcb313c64" Name="Diagram1">
+        <EntityTypeShape EntityType="RMSC1Model.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RMSC1Model.AspNetRole" Width="1.5" PointX="8.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RMSC1Model.AspNetUserClaim" Width="1.5" PointX="13.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="RMSC1Model.AspNetUserLogin" Width="1.5" PointX="13.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RMSC1Model.AspNetUser" Width="1.5" PointX="11" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RMSC1Model.BILL" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RMSC1Model.CART" Width="1.5" PointX="10.5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RMSC1Model.CATEGORY" Width="1.5" PointX="6" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RMSC1Model.CLIENT" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RMSC1Model.forgotpassword_client" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RMSC1Model.imageupload" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RMSC1Model.ORDER" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RMSC1Model.RAWMATERIAL" Width="1.5" PointX="8.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RMSC1Model.VENDOR" Width="1.5" PointX="6" PointY="10.375" IsExpanded="true" />
+        <AssociationConnector Association="RMSC1Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="RMSC1Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="RMSC1Model.FK__BILL__OrderID__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="RMSC1Model.FK__CART__RawID__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="RMSC1Model.FK__RAWMATERI__Categ__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="RMSC1Model.FK__ORDERS__ClientID__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="RMSC1Model.fk_forgetpasswordrequest_client" ManuallyRouted="false" />
+        <AssociationConnector Association="RMSC1Model.FK__RAWMATERI__vendo__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="RMSC1Model.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="RMSC1Model.RAW_MATERIAL_ORDERED" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,1047 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RMSC1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BILL">
+          <Key>
+            <PropertyRef Name="Bill_ID" />
+          </Key>
+          <Property Name="Bill_ID" Type="int" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="BillDate" Type="date" />
+          <Property Name="BillingAddress" Type="varchar" MaxLength="200" />
+          <Property Name="PaymentType" Type="varchar" MaxLength="16" />
+          <Property Name="CreditCardNo" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="CART">
+          <Key>
+            <PropertyRef Name="CartID" />
+          </Key>
+          <Property Name="CartID" Type="int" Nullable="false" />
+          <Property Name="RawID" Type="int" Nullable="false" />
+          <Property Name="TotalPrice" Type="int" Nullable="false" />
+          <Property Name="NumOfRM" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CATEGORY">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="cat_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CAT_image" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="CLIENT">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="ClientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="c_Fname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="c_Lname" Type="varchar" MaxLength="20" />
+          <Property Name="c_Gendre" Type="varchar" MaxLength="20" />
+          <Property Name="c_Address" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="c_City" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="c_ContactNo" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="c_Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="c_Username" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="c_Password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="c_RegisterDate" Type="date" />
+        </EntityType>
+        <EntityType Name="forgotpassword_client">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="uid" Type="int" />
+          <Property Name="requestdatetime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="imageupload">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+          <Property Name="size" Type="int" />
+        </EntityType>
+        <EntityType Name="ORDERS">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="ClientID" Type="int" Nullable="false" />
+          <Property Name="OrderDate" Type="date" />
+          <Property Name="RequiredDate" Type="date" />
+          <Property Name="TotalAmount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RAW_MATERIAL_ORDERED">
+          <Key>
+            <PropertyRef Name="RawID" />
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="RawID" Type="int" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RAWMATERIAL">
+          <Key>
+            <PropertyRef Name="RawID" />
+          </Key>
+          <Property Name="RawID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="r_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="r_Description" Type="varchar" MaxLength="120" />
+          <Property Name="r_NeedQuantity" Type="int" />
+          <Property Name="r_Price" Type="int" Nullable="false" />
+          <Property Name="r_QuantityInStock" Type="int" Nullable="false" />
+          <Property Name="r_MinOrder" Type="varchar" MaxLength="30" />
+          <Property Name="r_image1" Type="varbinary(max)" />
+          <Property Name="r_image2" Type="varbinary(max)" />
+          <Property Name="r_image3" Type="varbinary(max)" />
+          <Property Name="r_imageid1" Type="varchar" MaxLength="50" />
+          <Property Name="vendorID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VENDOR">
+          <Key>
+            <PropertyRef Name="VendorID" />
+          </Key>
+          <Property Name="VendorID" Type="int" Nullable="false" />
+          <Property Name="v_Username" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="v_Password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Vname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="v_ContactNo" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="v_Address" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="v_City" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="v_Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="v_RegisterDate" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__BILL__OrderID__403A8C7D">
+          <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDERS">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="BILL">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CART__RawID__59063A47">
+          <End Role="RAWMATERIAL" Type="Self.RAWMATERIAL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CART" Type="Self.CART" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAWMATERIAL">
+              <PropertyRef Name="RawID" />
+            </Principal>
+            <Dependent Role="CART">
+              <PropertyRef Name="RawID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ORDERS__ClientID__412EB0B6">
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENT">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="ORDERS">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RAW_MATER__Order__4222D4EF">
+          <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RAW_MATERIAL_ORDERED" Type="Self.RAW_MATERIAL_ORDERED" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDERS">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="RAW_MATERIAL_ORDERED">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RAW_MATER__RawID__4316F928">
+          <End Role="RAWMATERIAL" Type="Self.RAWMATERIAL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RAW_MATERIAL_ORDERED" Type="Self.RAW_MATERIAL_ORDERED" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAWMATERIAL">
+              <PropertyRef Name="RawID" />
+            </Principal>
+            <Dependent Role="RAW_MATERIAL_ORDERED">
+              <PropertyRef Name="RawID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RAWMATERI__Categ__440B1D61">
+          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RAWMATERIAL" Type="Self.RAWMATERIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORY">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="RAWMATERIAL">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RAWMATERI__vendo__44FF419A">
+          <End Role="VENDOR" Type="Self.VENDOR" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RAWMATERIAL" Type="Self.RAWMATERIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDOR">
+              <PropertyRef Name="VendorID" />
+            </Principal>
+            <Dependent Role="RAWMATERIAL">
+              <PropertyRef Name="vendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_forgetpasswordrequest_client">
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="0..1" />
+          <End Role="forgotpassword_client" Type="Self.forgotpassword_client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENT">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="forgotpassword_client">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="addcategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="In" />
+          <Parameter Name="cimage" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="newid" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="addrawmaterial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="In" />
+          <Parameter Name="rawid" Type="int" Mode="InOut" />
+          <Parameter Name="catagoryid" Type="int" Mode="In" />
+          <Parameter Name="rimage1" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="rimage2" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="rimage3" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="description" Type="varchar" Mode="In" />
+          <Parameter Name="r_NeedQuantity" Type="int" Mode="In" />
+          <Parameter Name="price" Type="int" Mode="In" />
+          <Parameter Name="r_QuantityInStock" Type="int" Mode="In" />
+          <Parameter Name="r_MinOrder" Type="varchar" Mode="In" />
+          <Parameter Name="r_imageid1" Type="varchar" Mode="In" />
+          <Parameter Name="vendorid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getproduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uploadimage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="In" />
+          <Parameter Name="size" Type="int" Mode="In" />
+          <Parameter Name="imagedata" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="newid" Type="int" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="RMSC1ModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BILL" EntityType="Self.BILL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CART" EntityType="Self.CART" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CLIENT" EntityType="Self.CLIENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="forgotpassword_client" EntityType="Self.forgotpassword_client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="imageupload" EntityType="Self.imageupload" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORDERS" EntityType="Self.ORDERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RAW_MATERIAL_ORDERED" EntityType="Self.RAW_MATERIAL_ORDERED" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RAWMATERIAL" EntityType="Self.RAWMATERIAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VENDOR" EntityType="Self.VENDOR" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__BILL__OrderID__403A8C7D" Association="Self.FK__BILL__OrderID__403A8C7D">
+            <End Role="ORDERS" EntitySet="ORDERS" />
+            <End Role="BILL" EntitySet="BILL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CART__RawID__59063A47" Association="Self.FK__CART__RawID__59063A47">
+            <End Role="RAWMATERIAL" EntitySet="RAWMATERIAL" />
+            <End Role="CART" EntitySet="CART" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ORDERS__ClientID__412EB0B6" Association="Self.FK__ORDERS__ClientID__412EB0B6">
+            <End Role="CLIENT" EntitySet="CLIENT" />
+            <End Role="ORDERS" EntitySet="ORDERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RAW_MATER__Order__4222D4EF" Association="Self.FK__RAW_MATER__Order__4222D4EF">
+            <End Role="ORDERS" EntitySet="ORDERS" />
+            <End Role="RAW_MATERIAL_ORDERED" EntitySet="RAW_MATERIAL_ORDERED" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RAW_MATER__RawID__4316F928" Association="Self.FK__RAW_MATER__RawID__4316F928">
+            <End Role="RAWMATERIAL" EntitySet="RAWMATERIAL" />
+            <End Role="RAW_MATERIAL_ORDERED" EntitySet="RAW_MATERIAL_ORDERED" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RAWMATERI__Categ__440B1D61" Association="Self.FK__RAWMATERI__Categ__440B1D61">
+            <End Role="CATEGORY" EntitySet="CATEGORY" />
+            <End Role="RAWMATERIAL" EntitySet="RAWMATERIAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RAWMATERI__vendo__44FF419A" Association="Self.FK__RAWMATERI__vendo__44FF419A">
+            <End Role="VENDOR" EntitySet="VENDOR" />
+            <End Role="RAWMATERIAL" EntitySet="RAWMATERIAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_forgetpasswordrequest_client" Association="Self.fk_forgetpasswordrequest_client">
+            <End Role="CLIENT" EntitySet="CLIENT" />
+            <End Role="forgotpassword_client" EntitySet="forgotpassword_client" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RMSC1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="BILL">
+          <Key>
+            <PropertyRef Name="Bill_ID" />
+          </Key>
+          <Property Name="Bill_ID" Type="Int32" Nullable="false" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="BillDate" Type="DateTime" Precision="0" />
+          <Property Name="BillingAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PaymentType" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="CreditCardNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ORDER" Relationship="Self.FK__BILL__OrderID__403A8C7D" FromRole="BILL" ToRole="ORDERS" />
+        </EntityType>
+        <EntityType Name="CART">
+          <Key>
+            <PropertyRef Name="CartID" />
+          </Key>
+          <Property Name="CartID" Type="Int32" Nullable="false" />
+          <Property Name="RawID" Type="Int32" Nullable="false" />
+          <Property Name="TotalPrice" Type="Int32" Nullable="false" />
+          <Property Name="NumOfRM" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RAWMATERIAL" Relationship="Self.FK__CART__RawID__59063A47" FromRole="CART" ToRole="RAWMATERIAL" />
+        </EntityType>
+        <EntityType Name="CATEGORY">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="cat_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CAT_image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="RAWMATERIALs" Relationship="Self.FK__RAWMATERI__Categ__440B1D61" FromRole="CATEGORY" ToRole="RAWMATERIAL" />
+        </EntityType>
+        <EntityType Name="CLIENT">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="ClientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="c_Fname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_Lname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="c_Gendre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="c_Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_ContactNo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_RegisterDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="ORDERS" Relationship="Self.FK__ORDERS__ClientID__412EB0B6" FromRole="CLIENT" ToRole="ORDERS" />
+          <NavigationProperty Name="forgotpassword_client" Relationship="Self.fk_forgetpasswordrequest_client" FromRole="CLIENT" ToRole="forgotpassword_client" />
+        </EntityType>
+        <EntityType Name="forgotpassword_client">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="requestdatetime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CLIENT" Relationship="Self.fk_forgetpasswordrequest_client" FromRole="forgotpassword_client" ToRole="CLIENT" />
+        </EntityType>
+        <EntityType Name="imageupload">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="size" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ORDER">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="ClientID" Type="Int32" Nullable="false" />
+          <Property Name="OrderDate" Type="DateTime" Precision="0" />
+          <Property Name="RequiredDate" Type="DateTime" Precision="0" />
+          <Property Name="TotalAmount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BILLs" Relationship="Self.FK__BILL__OrderID__403A8C7D" FromRole="ORDERS" ToRole="BILL" />
+          <NavigationProperty Name="CLIENT" Relationship="Self.FK__ORDERS__ClientID__412EB0B6" FromRole="ORDERS" ToRole="CLIENT" />
+          <NavigationProperty Name="RAWMATERIALs" Relationship="Self.RAW_MATERIAL_ORDERED" FromRole="ORDERS" ToRole="RAWMATERIAL" />
+        </EntityType>
+        <EntityType Name="RAWMATERIAL">
+          <Key>
+            <PropertyRef Name="RawID" />
+          </Key>
+          <Property Name="RawID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="r_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="r_Description" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="r_NeedQuantity" Type="Int32" />
+          <Property Name="r_Price" Type="Int32" Nullable="false" />
+          <Property Name="r_QuantityInStock" Type="Int32" Nullable="false" />
+          <Property Name="r_MinOrder" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="r_image1" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="r_image2" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="r_image3" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="r_imageid1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vendorID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CARTs" Relationship="Self.FK__CART__RawID__59063A47" FromRole="RAWMATERIAL" ToRole="CART" />
+          <NavigationProperty Name="CATEGORY" Relationship="Self.FK__RAWMATERI__Categ__440B1D61" FromRole="RAWMATERIAL" ToRole="CATEGORY" />
+          <NavigationProperty Name="VENDOR" Relationship="Self.FK__RAWMATERI__vendo__44FF419A" FromRole="RAWMATERIAL" ToRole="VENDOR" />
+          <NavigationProperty Name="ORDERS" Relationship="Self.RAW_MATERIAL_ORDERED" FromRole="RAWMATERIAL" ToRole="ORDERS" />
+        </EntityType>
+        <EntityType Name="VENDOR">
+          <Key>
+            <PropertyRef Name="VendorID" />
+          </Key>
+          <Property Name="VendorID" Type="Int32" Nullable="false" />
+          <Property Name="v_Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="v_Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Vname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="v_ContactNo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="v_Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="v_City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="v_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="v_RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="RAWMATERIALs" Relationship="Self.FK__RAWMATERI__vendo__44FF419A" FromRole="VENDOR" ToRole="RAWMATERIAL" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BILL__OrderID__403A8C7D">
+          <End Role="ORDERS" Type="Self.ORDER" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BILL" Type="Self.BILL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDERS">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="BILL">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CART__RawID__59063A47">
+          <End Role="RAWMATERIAL" Type="Self.RAWMATERIAL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CART" Type="Self.CART" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAWMATERIAL">
+              <PropertyRef Name="RawID" />
+            </Principal>
+            <Dependent Role="CART">
+              <PropertyRef Name="RawID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RAWMATERI__Categ__440B1D61">
+          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RAWMATERIAL" Type="Self.RAWMATERIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORY">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="RAWMATERIAL">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ORDERS__ClientID__412EB0B6">
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ORDERS" Type="Self.ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENT">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="ORDERS">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_forgetpasswordrequest_client">
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="0..1" />
+          <End Role="forgotpassword_client" Type="Self.forgotpassword_client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENT">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="forgotpassword_client">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RAWMATERI__vendo__44FF419A">
+          <End Role="VENDOR" Type="Self.VENDOR" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RAWMATERIAL" Type="Self.RAWMATERIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDOR">
+              <PropertyRef Name="VendorID" />
+            </Principal>
+            <Dependent Role="RAWMATERIAL">
+              <PropertyRef Name="vendorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <Association Name="RAW_MATERIAL_ORDERED">
+          <End Role="ORDERS" Type="Self.ORDER" Multiplicity="*" />
+          <End Role="RAWMATERIAL" Type="Self.RAWMATERIAL" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="RMSC1Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="BILLs" EntityType="Self.BILL" />
+          <EntitySet Name="CARTs" EntityType="Self.CART" />
+          <EntitySet Name="CATEGORies" EntityType="Self.CATEGORY" />
+          <EntitySet Name="CLIENTs" EntityType="Self.CLIENT" />
+          <EntitySet Name="forgotpassword_client" EntityType="Self.forgotpassword_client" />
+          <EntitySet Name="imageuploads" EntityType="Self.imageupload" />
+          <EntitySet Name="ORDERS" EntityType="Self.ORDER" />
+          <EntitySet Name="RAWMATERIALs" EntityType="Self.RAWMATERIAL" />
+          <EntitySet Name="VENDORs" EntityType="Self.VENDOR" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BILL__OrderID__403A8C7D" Association="Self.FK__BILL__OrderID__403A8C7D">
+            <End Role="ORDERS" EntitySet="ORDERS" />
+            <End Role="BILL" EntitySet="BILLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CART__RawID__59063A47" Association="Self.FK__CART__RawID__59063A47">
+            <End Role="RAWMATERIAL" EntitySet="RAWMATERIALs" />
+            <End Role="CART" EntitySet="CARTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RAWMATERI__Categ__440B1D61" Association="Self.FK__RAWMATERI__Categ__440B1D61">
+            <End Role="CATEGORY" EntitySet="CATEGORies" />
+            <End Role="RAWMATERIAL" EntitySet="RAWMATERIALs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ORDERS__ClientID__412EB0B6" Association="Self.FK__ORDERS__ClientID__412EB0B6">
+            <End Role="CLIENT" EntitySet="CLIENTs" />
+            <End Role="ORDERS" EntitySet="ORDERS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_forgetpasswordrequest_client" Association="Self.fk_forgetpasswordrequest_client">
+            <End Role="CLIENT" EntitySet="CLIENTs" />
+            <End Role="forgotpassword_client" EntitySet="forgotpassword_client" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RAWMATERI__vendo__44FF419A" Association="Self.FK__RAWMATERI__vendo__44FF419A">
+            <End Role="VENDOR" EntitySet="VENDORs" />
+            <End Role="RAWMATERIAL" EntitySet="RAWMATERIALs" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="RAW_MATERIAL_ORDERED" Association="Self.RAW_MATERIAL_ORDERED">
+            <End Role="ORDERS" EntitySet="ORDERS" />
+            <End Role="RAWMATERIAL" EntitySet="RAWMATERIALs" />
+          </AssociationSet>
+          <FunctionImport Name="addcategory">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="cimage" Mode="In" Type="Binary" />
+            <Parameter Name="newid" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="addrawmaterial">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="rawid" Mode="InOut" Type="Int32" />
+            <Parameter Name="catagoryid" Mode="In" Type="Int32" />
+            <Parameter Name="rimage1" Mode="In" Type="Binary" />
+            <Parameter Name="rimage2" Mode="In" Type="Binary" />
+            <Parameter Name="rimage3" Mode="In" Type="Binary" />
+            <Parameter Name="description" Mode="In" Type="String" />
+            <Parameter Name="r_NeedQuantity" Mode="In" Type="Int32" />
+            <Parameter Name="price" Mode="In" Type="Int32" />
+            <Parameter Name="r_QuantityInStock" Mode="In" Type="Int32" />
+            <Parameter Name="r_MinOrder" Mode="In" Type="String" />
+            <Parameter Name="r_imageid1" Mode="In" Type="String" />
+            <Parameter Name="vendorid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getproduct" ReturnType="Collection(RMSC1Model.getproduct_Result)" />
+          <FunctionImport Name="uploadimage">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="size" Mode="In" Type="Int32" />
+            <Parameter Name="imagedata" Mode="In" Type="Binary" />
+            <Parameter Name="newid" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="getproduct_Result">
+          <Property Type="Binary" Name="r_image1" Nullable="true" />
+          <Property Type="String" Name="r_Name" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="r_Price" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RMSC1ModelStoreContainer" CdmEntityContainer="RMSC1Entities1">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="RMSC1Model.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="RMSC1Model.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="RMSC1Model.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="RMSC1Model.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="RMSC1Model.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BILLs">
+            <EntityTypeMapping TypeName="RMSC1Model.BILL">
+              <MappingFragment StoreEntitySet="BILL">
+                <ScalarProperty Name="Bill_ID" ColumnName="Bill_ID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="BillDate" ColumnName="BillDate" />
+                <ScalarProperty Name="BillingAddress" ColumnName="BillingAddress" />
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+                <ScalarProperty Name="CreditCardNo" ColumnName="CreditCardNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CARTs">
+            <EntityTypeMapping TypeName="RMSC1Model.CART">
+              <MappingFragment StoreEntitySet="CART">
+                <ScalarProperty Name="CartID" ColumnName="CartID" />
+                <ScalarProperty Name="RawID" ColumnName="RawID" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="NumOfRM" ColumnName="NumOfRM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CATEGORies">
+            <EntityTypeMapping TypeName="RMSC1Model.CATEGORY">
+              <MappingFragment StoreEntitySet="CATEGORY">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="cat_Name" ColumnName="cat_Name" />
+                <ScalarProperty Name="CAT_image" ColumnName="CAT_image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIENTs">
+            <EntityTypeMapping TypeName="RMSC1Model.CLIENT">
+              <MappingFragment StoreEntitySet="CLIENT">
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="c_Fname" ColumnName="c_Fname" />
+                <ScalarProperty Name="c_Lname" ColumnName="c_Lname" />
+                <ScalarProperty Name="c_Gendre" ColumnName="c_Gendre" />
+                <ScalarProperty Name="c_Address" ColumnName="c_Address" />
+                <ScalarProperty Name="c_City" ColumnName="c_City" />
+                <ScalarProperty Name="c_ContactNo" ColumnName="c_ContactNo" />
+                <ScalarProperty Name="c_Email" ColumnName="c_Email" />
+                <ScalarProperty Name="c_Username" ColumnName="c_Username" />
+                <ScalarProperty Name="c_Password" ColumnName="c_Password" />
+                <ScalarProperty Name="c_RegisterDate" ColumnName="c_RegisterDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="forgotpassword_client">
+            <EntityTypeMapping TypeName="RMSC1Model.forgotpassword_client">
+              <MappingFragment StoreEntitySet="forgotpassword_client">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="requestdatetime" ColumnName="requestdatetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="imageuploads">
+            <EntityTypeMapping TypeName="RMSC1Model.imageupload">
+              <MappingFragment StoreEntitySet="imageupload">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="size" ColumnName="size" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDERS">
+            <EntityTypeMapping TypeName="RMSC1Model.ORDER">
+              <MappingFragment StoreEntitySet="ORDERS">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="RequiredDate" ColumnName="RequiredDate" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RAWMATERIALs">
+            <EntityTypeMapping TypeName="RMSC1Model.RAWMATERIAL">
+              <MappingFragment StoreEntitySet="RAWMATERIAL">
+                <ScalarProperty Name="RawID" ColumnName="RawID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="r_Name" ColumnName="r_Name" />
+                <ScalarProperty Name="r_Description" ColumnName="r_Description" />
+                <ScalarProperty Name="r_NeedQuantity" ColumnName="r_NeedQuantity" />
+                <ScalarProperty Name="r_Price" ColumnName="r_Price" />
+                <ScalarProperty Name="r_QuantityInStock" ColumnName="r_QuantityInStock" />
+                <ScalarProperty Name="r_MinOrder" ColumnName="r_MinOrder" />
+                <ScalarProperty Name="r_image1" ColumnName="r_image1" />
+                <ScalarProperty Name="r_image2" ColumnName="r_image2" />
+                <ScalarProperty Name="r_image3" ColumnName="r_image3" />
+                <ScalarProperty Name="r_imageid1" ColumnName="r_imageid1" />
+                <ScalarProperty Name="vendorID" ColumnName="vendorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VENDORs">
+            <EntityTypeMapping TypeName="RMSC1Model.VENDOR">
+              <MappingFragment StoreEntitySet="VENDOR">
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="v_Username" ColumnName="v_Username" />
+                <ScalarProperty Name="v_Password" ColumnName="v_Password" />
+                <ScalarProperty Name="Vname" ColumnName="Vname" />
+                <ScalarProperty Name="v_ContactNo" ColumnName="v_ContactNo" />
+                <ScalarProperty Name="v_Address" ColumnName="v_Address" />
+                <ScalarProperty Name="v_City" ColumnName="v_City" />
+                <ScalarProperty Name="v_Email" ColumnName="v_Email" />
+                <ScalarProperty Name="v_RegisterDate" ColumnName="v_RegisterDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="RMSC1Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="RAW_MATERIAL_ORDERED" TypeName="RMSC1Model.RAW_MATERIAL_ORDERED" StoreEntitySet="RAW_MATERIAL_ORDERED">
+            <EndProperty Name="ORDERS">
+              <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+            </EndProperty>
+            <EndProperty Name="RAWMATERIAL">
+              <ScalarProperty Name="RawID" ColumnName="RawID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="addcategory" FunctionName="RMSC1Model.Store.addcategory" />
+          <FunctionImportMapping FunctionImportName="addrawmaterial" FunctionName="RMSC1Model.Store.addrawmaterial" />
+          <FunctionImportMapping FunctionImportName="getproduct" FunctionName="RMSC1Model.Store.getproduct">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RMSC1Model.getproduct_Result">
+                <ScalarProperty Name="r_image1" ColumnName="r_image1" />
+                <ScalarProperty Name="r_Name" ColumnName="r_Name" />
+                <ScalarProperty Name="r_Price" ColumnName="r_Price" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uploadimage" FunctionName="RMSC1Model.Store.uploadimage" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
